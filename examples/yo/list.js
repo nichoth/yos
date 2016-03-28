@@ -3,11 +3,11 @@ var xtend = require('xtend')
 
 module.exports = renderList
 
-function renderList(yo, opts) {
+function renderList(yo, opts, prevEl) {
   var className = 'example'
   opts = xtend({
     items: [],
-    onclick: false
+    onclick: function(){}
   }, opts)
 
   var el = yo`<div class=${className}>
@@ -17,15 +17,16 @@ function renderList(yo, opts) {
         return yo`<li>${item}</li>`
       })}
     </ul>
-    <button onclick=${onClick}>Add Random Number</button>
+    <button onclick=${onClick.bind(null, prevEl)}>Add Random Number</button>
   </div>`
 
-  function onClick(ev) {
+  function onClick(prevEl, ev) {
+    prevEl = prevEl || el
     var newEl = renderList(yo, xtend(opts, {
       items: opts.items.concat(Math.random())
-    }))
-    update('.'+className, newEl)
-    if (opts.onclick) opts.onclick(ev)
+    }), prevEl)
+    update(prevEl, newEl)
+    opts.onclick(ev)
   }
 
   return el

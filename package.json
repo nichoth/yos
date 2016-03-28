@@ -4,17 +4,18 @@
       "yo-yoify"
     ]
   },
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
+    "bel": "^4.3.0",
     "observ": "^0.2.0",
     "observ-array": "^3.2.1",
     "observ-struct": "^6.0.0",
     "observify": "^1.1.2",
     "xtend": "^4.0.1",
-    "yo-yo": "^1.1.1"
+    "yo-yo": "https://github.com/nichoth/yo-yo/tarball/master"
   },
   "devDependencies": {
+    "brfs": "^1.4.3",
     "ecstatic": "^1.4.0",
     "wzrd": "^1.3.1",
     "yo-yoify": "^1.0.2"
