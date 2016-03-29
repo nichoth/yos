@@ -6,3 +6,4 @@ var list = List(yo, {
 })
 
 document.body.appendChild(list)
+document.body.appendChild(List(yo))
